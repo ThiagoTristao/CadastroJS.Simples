@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8"/>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<title>Cadastro</title>
+</head>
+<body>
+<form method="POST" action ="teste.html">
+<nav class="navbar navbar-light bg-light">
+ 	<span class="navbar-brand mb-0 h1">Estágio</span>
+</nav>
+<form id="formulario">
+  <div class="form-group col-md-4">
+    <label for="Nome">Nome</label>
+    <input type="name" class="form-control" id="nome" name="nome" placeholder="Nome Completo">
+  </div>
+  <div class="form-group col-md-4">
+    <label for="ExemploEmail">Email</label>
+    <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+  </div>
+  <button type="submit" id="meu-submit" class="btn btn-primary">Salvar</button>
+  <br></br>
+</form>
+
+<div style="width:630px;">
+<table width="5%" class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Email</th>
+      <th>Nome</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    </tr>
+  </tbody>
+</table>
+
+<script>
+  var id = 0;
+  var form = document.getElementById('formulario');
+  var nome = document.getElementById('nome');
+  var email = document.getElementById('email');
+  var corpo_tabela = document.querySelector("tbody");
+  //so entra na funcao quando clica no botao
+  document.getElementById("meu-submit").onclick = function(e) {
+      id = id + 1;
+      var linha = document.createElement("tr");
+      var campo_id = document.createElement("td");
+      var campo_email = document.createElement("td");
+      var campo_nome = document.createElement("td");
+      var texto_id = document.createTextNode(id);
+      var texto_nome = document.createTextNode(nome.value);
+      var texto_email = document.createTextNode(email.value);
+      campo_id.appendChild(texto_id);
+      campo_email.appendChild(texto_email);
+      campo_nome.appendChild(texto_nome);
+      linha.appendChild(campo_id);
+      linha.appendChild(campo_email);
+      linha.appendChild(campo_nome);
+      corpo_tabela.appendChild(linha);
+      //codigo responsavel por impedir recarregar a tela
+      e.preventDefault();
+  };
+</script>
+</body>
+</html>
